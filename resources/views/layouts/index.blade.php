@@ -101,7 +101,6 @@
             <ul class="submenu">
               <li><a href="#">User</a></li>
               <li><a href={{ url("produk") }}  class="{{Request::is('produk') ? 'active' : ''}}">Produk</a></li>
-              {{-- <li><a href={{ url("produk") }}  style="color: {{url()->current() === 'produk' ? 'red' : ''}}">Produk</a></li> --}}
               <li><a href="#">Pelanggan</a></li>
               <li><a href="#">Penjualan</a></li>
             </ul>
