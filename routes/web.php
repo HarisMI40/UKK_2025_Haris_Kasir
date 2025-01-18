@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\UserController;
 
 Route::get('/', function(){
     return view("dashboard");
@@ -10,6 +10,16 @@ Route::get('/', function(){
 
 
 Route::prefix("produk")->controller(ProductController::class) ->group(function(){
+    Route::get('/', "index");
+    Route::get('/tambah', "create");
+    Route::post('/tambah', "store");
+    Route::get('/edit/{id}', "edit");
+    Route::PUT('/update/{id}', "update");
+    Route::delete('/{id}', "destroy"); 
+});
+
+
+Route::prefix("user")->controller(UserController::class) ->group(function(){
     Route::get('/', "index");
     Route::get('/tambah', "create");
     Route::post('/tambah', "store");

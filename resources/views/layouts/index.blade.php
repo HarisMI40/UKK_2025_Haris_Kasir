@@ -99,7 +99,7 @@
           <li>
             <h5 class="submenu-title">Data</h5>
             <ul class="submenu">
-              <li><a href="#">User</a></li>
+              <li><a href={{ url("user") }} class="{{Request::is('user') ? 'active' : ''}}">User</a></li>
               <li><a href={{ url("produk") }}  class="{{Request::is('produk') ? 'active' : ''}}">Produk</a></li>
               <li><a href="#">Pelanggan</a></li>
               <li><a href="#">Penjualan</a></li>
