@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    @include('layouts.linkbootstrap')
 
-
+    @include('layouts_old.linkbootstrap')
     <style>
         * {
             margin: 0;
@@ -28,29 +27,31 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
-            
-            .submenu-title{
-              font-weight: 600;
-              margin: 20px 0px;
+
+            .submenu-title {
+                font-weight: 600;
+                margin: 20px 0px;
             }
 
 
-            .submenu{
-              padding : 0;
-              li {
-                a{
-                  padding : 0;
-                  padding-left: 10px;
+            .submenu {
+                padding: 0;
+
+                li {
+                    a {
+                        padding: 0;
+                        padding-left: 10px;
+                    }
                 }
-              }
             }
+
             li {
                 list-style: none;
-              }
+            }
 
-            
-            
-            
+
+
+
         }
 
         .sidebar h2 {
@@ -86,8 +87,8 @@
             line-height: 1.6;
         }
 
-        .active{
-          background: rgba(255, 255, 255, 0.2);
+        .active {
+            background: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -96,27 +97,31 @@
     <div class="sidebar">
         <h2>My Dashboard</h2>
         <ul>
-          <li>
-            <h5 class="submenu-title">Data</h5>
-            <ul class="submenu">
-              <li><a href={{ url("user") }} class="{{Request::is('user') ? 'active' : ''}}">User</a></li>
-              <li><a href={{ url("produk") }}  class="{{Request::is('produk') ? 'active' : ''}}">Produk</a></li>
-              <li><a href="#">Pelanggan</a></li>
-              <li><a href="#">Penjualan</a></li>
-            </ul>
-          </li>
+            <li>
+                <h5 class="submenu-title">Data</h5>
+                <ul class="submenu">
+                    <li><a href={{ url("/user") }} class="">User</a></li>
+                    <li><a href={{ url("/produk") }} class="">Produk</a></li>
+                    <li><a href={{ url("/pelanggan") }}>Pelanggan</a></li>
+                    <li><a href="#">Penjualan</a></li>
+                </ul>
+            </li>
 
-          <li>
-            <h5 class="submenu-title">Transaksi</h5>
-            <ul class="submenu">
-              <li><a href="#">Penjualan</a></li>
-            </ul>
-          </li>
+            <li>
+                <h5 class="submenu-title">Transaksi</h5>
+                <ul class="submenu">
+                    <li><a href="#">Penjualan</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
+
     <div class="content">
-      @yield("content")
+
+        @yield("konten")
+
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
