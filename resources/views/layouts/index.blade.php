@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
 
-    @include('layouts_old.linkbootstrap')
+    {{-- @include('layouts_old.linkbootstrap') --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         * {
             margin: 0;
@@ -98,19 +99,12 @@
         <h2>My Dashboard</h2>
         <ul>
             <li>
-                <h5 class="submenu-title">Data</h5>
+                <h5 class="submenu-title">My Project</h5>
                 <ul class="submenu">
-                    <li><a href={{ url("/user") }} class="">User</a></li>
+                    {{-- <li><a href={{ url("/user") }} class="">User</a></li>
                     <li><a href={{ url("/produk") }} class="">Produk</a></li>
                     <li><a href={{ url("/pelanggan") }}>Pelanggan</a></li>
-                    <li><a href="#">Penjualan</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <h5 class="submenu-title">Transaksi</h5>
-                <ul class="submenu">
-                    <li><a href="#">Penjualan</a></li>
+                    <li><a href="#">Penjualan</a></li> --}}
                 </ul>
             </li>
         </ul>

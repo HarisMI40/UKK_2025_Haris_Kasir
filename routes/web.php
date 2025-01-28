@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
-
+// use App\Htpp\Controllers\ListController;
+// use App\Http\Controllers\ListController as ControllersListController;
 
 // Route::get(URL, FILE MANA YANG MAU DI BUKA);
-
+Route::get("/", [ListController::class, "index"]);
 
 // Route::prefix("pelanggan")->controller(PelangganController::class) ->group(function(){
 //     Route::get('/', "index");
