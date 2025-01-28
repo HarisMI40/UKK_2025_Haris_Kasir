@@ -17,8 +17,10 @@ return new class extends Migration
             $table->enum("status", ["selesai", "belum_selesai"]);
             $table->date("tanggal");
             $table->enum("prioritas", ["1","2","3","4"]);
-            $table->string("id_list");
+            $table->unsignedBigInteger('id_list')->constrained('list')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('id_list')->references('id')->on('list');
         });
     }
 

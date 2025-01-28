@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\DB;
+@endphp
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +10,8 @@
     <title>Bootstrap demo</title>
 
     {{-- @include('layouts_old.linkbootstrap') --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         * {
             margin: 0;
@@ -101,10 +105,17 @@
             <li>
                 <h5 class="submenu-title">My Project</h5>
                 <ul class="submenu">
-                    {{-- <li><a href={{ url("/user") }} class="">User</a></li>
-                    <li><a href={{ url("/produk") }} class="">Produk</a></li>
-                    <li><a href={{ url("/pelanggan") }}>Pelanggan</a></li>
-                    <li><a href="#">Penjualan</a></li> --}}
+                    <?php
+                        $menuItems = DB::table('list')
+                        ->select('id', 'nama')
+                        // ->where('active', 1)
+                        ->orderBy('created_at', 'asc')
+                        ->get();
+                    ?>
+
+                    @foreach ($menuItems as $menuItem)
+                        <li><a href={{ url("/$menuItem->id") }} class="">{{ $menuItem->nama }}</a></li>
+                    @endforeach
                 </ul>
             </li>
         </ul>
@@ -112,7 +123,7 @@
 
     <div class="content">
 
-        @yield("konten")
+        @yield('konten')
 
     </div>
 

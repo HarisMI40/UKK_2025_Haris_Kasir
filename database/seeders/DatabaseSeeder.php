@@ -61,5 +61,7 @@ class DatabaseSeeder extends Seeder
         // ];
         
         // DB::table('produk')->insert($data);
+        $this->call(ListSeeder::class);
+        $this->call(TaskSeeder::class);
     }
 }
