@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lists;
 use Illuminate\Http\Request;
 
 class ListController extends Controller
@@ -11,7 +12,9 @@ class ListController extends Controller
 
     // tampil LIst
     public function index(){
-        return view("Dashboard");
+        $lists = Lists::all();
+
+        return view("Dashboard", ["lists" => $lists]);
     }
 
     // tambah List
@@ -20,8 +23,23 @@ class ListController extends Controller
     }
 
     // proses masukan ke database
-    public function store(){}
+    public function store(){
+        // cara 1
+        $daftar = new Lists;
+            $daftar->nama = "Tugas Nayla";
+
+        $daftar->save();
+
+        // cara 2
+        Lists::create([
+            "nama" => "Tugas Marsina"
+        ]);
+    }
 
     // untuk menghapus list
-    public function hapus(){}
+    public function hapus($id){
+        $data = Lists::find($id);
+
+        $data->delete();
+    }
 }

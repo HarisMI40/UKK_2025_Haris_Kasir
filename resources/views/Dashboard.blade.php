@@ -1,5 +1,7 @@
 @extends("layouts.index")
 
 @section('konten')
-    {{-- <h1><?= $data ?></h1> --}}
+    @foreach($lists as $lists)
+        <h1> Nama : {{ $lists->nama }}  </h1>
+    @endforeach
 @endsection

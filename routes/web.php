@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get(URL, FILE MANA YANG MAU DI BUKA);
 Route::get("/", [ListController::class, "index"]);
+Route::get("/tambahList", [ListController::class, "store"]);
+Route::get("/hapusList/{id}", [ListController::class, "hapus"]);
 
 // Route::prefix("pelanggan")->controller(PelangganController::class) ->group(function(){
 //     Route::get('/', "index");
