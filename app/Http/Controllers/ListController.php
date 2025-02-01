@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lists;
 use Illuminate\Http\Request;
 
 class ListController extends Controller
@@ -20,7 +21,15 @@ class ListController extends Controller
     }
 
     // proses masukan ke database
-    public function store(){}
+    public function store(Request $request){
+        $data = [
+            "nama" => $request->input("nama"),
+        ];
+
+        Lists::create($data);
+        
+        return redirect()->back();
+    }
 
     // untuk menghapus list
     public function hapus(){}
