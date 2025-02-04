@@ -95,12 +95,19 @@
 </head>
 
 <body>
+    <?php 
+        use App\Models\Lists;
+        $lists = Lists::all();
+    ?>
     <div class="sidebar">
         <h2>My Dashboard</h2>
         <ul>
             <li>
                 <h5 class="submenu-title">My Project</h5>
                 <ul class="submenu">
+                    @foreach($lists as $lists)
+                        <h1> Nama : {{ $lists->nama }}  </h1>
+                    @endforeach
                     {{-- <li><a href={{ url("/user") }} class="">User</a></li>
                     <li><a href={{ url("/produk") }} class="">Produk</a></li>
                     <li><a href={{ url("/pelanggan") }}>Pelanggan</a></li>

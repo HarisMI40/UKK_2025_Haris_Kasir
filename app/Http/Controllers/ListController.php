@@ -12,9 +12,8 @@ class ListController extends Controller
 
     // tampil LIst
     public function index(){
-        $lists = Lists::all();
 
-        return view("Dashboard", ["lists" => $lists]);
+        return view("Dashboard");
     }
 
     // tambah List
