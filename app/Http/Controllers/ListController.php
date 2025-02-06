@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lists;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class ListController extends Controller
@@ -21,18 +22,28 @@ class ListController extends Controller
         echo "Halooooo Tambah";
     }
 
+    public function show($id){
+        // Lists::where("id", $id)->get();
+
+        $lists = Lists::find($id);
+        $task  = Task::where("id_list", $id)->get();
+
+
+        return view("Task.index", ["data" => $lists, "todo" => $task]);
+    }
+
     // proses masukan ke database
-    public function store(){
+    public function store(Request $request){
         // cara 1
         $daftar = new Lists;
-            $daftar->nama = "Tugas Nayla";
+            $daftar->nama = $request->nama_list;
 
         $daftar->save();
-
-        // cara 2
-        Lists::create([
-            "nama" => "Tugas Marsina"
-        ]);
+        return redirect()->back();
+        // // cara 2
+        // Lists::create([
+        //     "nama" => "Tugas Marsina"
+        // ]);
     }
 
     // untuk menghapus list
@@ -40,5 +51,7 @@ class ListController extends Controller
         $data = Lists::find($id);
 
         $data->delete();
+
+        return redirect()->back();
     }
 }
