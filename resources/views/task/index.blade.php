@@ -14,12 +14,16 @@
                         {{ $task->nama }}
                     </label>
 
-                    <form action="{{ url("/$task->id") }}" method="post">
-                        @csrf
-                        @method("DELETE")
+                    <div class="d-flex gap-2">
+                        <a href="{{ url("/task/$task->id/edit") }}" class="btn btn-outline-success btn-sm">Edit</a>
+                        <form action="{{ url("/$task->id") }}" method="post">
+                            @csrf
+                            @method("DELETE")
+    
+                            <button type="submit" class="btn btn-outline-danger btn-sm">X</button>
+                        </form>
 
-                        <button type="submit" class="btn btn-outline-danger btn-sm">X</button>
-                    </form>
+                    </div>
 
                 </div>
             </div>

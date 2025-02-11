@@ -12,6 +12,8 @@ Route::post("/list", [ListController::class, "store"]);
 Route::get("/{id}", [TaskController::class, "index"]);
 Route::post("/{id}", [TaskController::class, "store"]);
 Route::delete("/{id}", [TaskController::class, "destroy"]);
+Route::get("/task/{id}/edit", [TaskController::class, "edit"]);
+Route::put("/task/{id}", [TaskController::class, "update"]);
 
 // Route::prefix("pelanggan")->controller(PelangganController::class) ->group(function(){
 //     Route::get('/', "index");
